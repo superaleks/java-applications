@@ -82,5 +82,9 @@ public class MyFirstSwingWindow {
 		name.setBounds(6, 31, 61, 16);
 		frame.getContentPane().add(name);
 		
+		JButton btnNewButton = new JButton("New button");
+		btnNewButton.setBounds(16, 105, 117, 29);
+		frame.getContentPane().add(btnNewButton);
+		
 	}
 }

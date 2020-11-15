@@ -8,6 +8,9 @@ import javax.swing.border.LineBorder;
 import javax.swing.table.AbstractTableModel;
 
 import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
 
 public class TablesTwoDimensionalArray {
 
@@ -32,13 +35,13 @@ public class TablesTwoDimensionalArray {
 	
 	class TableData extends AbstractTableModel {
 		
-		int[][] allData = new int[3][3];
+		String[][] allData = new String[3][3];
 		
 		public TableData() {
 			
-		allData[0] = new int[] {1, 2, 3};
-		allData[1] = new int[] {4, 5, 6};
-		allData[2] = new int[] {7, 8, 9};
+		allData[0] = new String[] {"Marcos", "Daniel", "Cortez"};
+		allData[1] = new String[] {"Aleksandra", "Lukic", "Aleksandra"};
+		allData[2] = new String[] {"Marcos", "Alejandra", "Priscila"};
 		
 		}
 		
@@ -80,13 +83,19 @@ public class TablesTwoDimensionalArray {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		table = new JTable();
-		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBounds(44, 33, 377, 204);
-		frame.getContentPane().add(table);
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scrollPane.setBounds(44, 33, 308, 151);
+		frame.getContentPane().add(scrollPane);
 		
+		table = new JTable();
+		scrollPane.setViewportView(table);
+		table.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		TableData data = new TableData();
 		table.setModel(data);
+		
+		
 		
 	}
 }
